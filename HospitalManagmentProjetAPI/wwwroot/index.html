@@ -1,0 +1,1072 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Hospital Management System</title>
+
+    <link rel="stylesheet" href="/Stylecss.css">
+</head>
+
+<body>
+
+    <!-- =========================
+         SIDEBAR
+    ========================== -->
+
+    <aside class="sidebar">
+
+        <div class="brand">
+
+            <span class="brand-icon">+</span>
+
+            <span>Hospital</span>
+
+        </div>
+
+        <nav>
+
+            <button class="nav-link active"
+                    data-section="dashboardSection">
+
+                Dashboard
+
+            </button>
+
+
+            <button class="nav-link"
+                    data-section="patientsSection">
+
+                Patient Management
+
+            </button>
+
+
+            <button class="nav-link"
+                    data-section="doctorsSection">
+
+                Doctors
+
+            </button>
+
+
+            <button class="nav-link"
+                    data-section="appointmentsSection">
+
+                Appointments
+
+            </button>
+
+
+            <button class="nav-link"
+                    data-section="reportsSection">
+
+                Reports
+
+            </button>
+
+        </nav>
+
+    </aside>
+
+
+    <!-- =========================
+         MAIN CONTENT
+    ========================== -->
+
+    <main class="main-content">
+
+
+        <!-- HEADER -->
+
+        <header class="topbar">
+
+            <div>
+
+                <h1>
+                    Hospital Management System
+                </h1>
+
+                <p id="pageSubtitle">
+                    Hospital Dashboard
+                </p>
+
+            </div>
+
+
+            <div class="admin-card">
+
+                <span>🔔</span>
+
+                <strong>
+                    Administrator
+                </strong>
+
+            </div>
+
+        </header>
+
+
+        <!-- MESSAGE -->
+
+        <div id="globalMessage"
+             class="message hidden">
+        </div>
+
+
+
+        <!-- =========================
+             DASHBOARD
+        ========================== -->
+
+        <section id="dashboardSection"
+                 class="page-section active-section">
+
+
+            <div class="stats-grid">
+
+
+                <div class="stat-card">
+
+                    <p>
+                        Total Patients
+                    </p>
+
+                    <h2 id="patientCount">
+                        0
+                    </h2>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <p>
+                        Total Doctors
+                    </p>
+
+                    <h2 id="doctorCount">
+                        0
+                    </h2>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <p>
+                        Total Appointments
+                    </p>
+
+                    <h2 id="appointmentCount">
+                        0
+                    </h2>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <p>
+                        Departments
+                    </p>
+
+                    <h2 id="departmentCount">
+                        0
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="panel">
+
+                <div class="panel-header">
+
+                    <div>
+
+                        <h2>
+                            Patient Records
+                        </h2>
+
+                        <p>
+                            Recently registered patients
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="table-wrap">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+
+                                <th>ID</th>
+
+                                <th>Name</th>
+
+                                <th>Birth Date</th>
+
+                                <th>Phone</th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody id="dashboardPatientTable">
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================
+             PATIENT MANAGEMENT
+        ========================== -->
+
+        <section id="patientsSection"
+                 class="page-section">
+
+
+            <div class="panel">
+
+
+                <div class="panel-header">
+
+                    <div>
+
+                        <h2>
+                            Patient Management
+                        </h2>
+
+                        <p>
+                            Add, update and delete patients
+                        </p>
+
+                    </div>
+
+
+                    <button id="addPatientButton"
+                            class="primary-button">
+
+                        + Add Patient
+
+                    </button>
+
+                </div>
+
+
+                <div class="table-wrap">
+
+
+                    <table>
+
+
+                        <thead>
+
+                            <tr>
+
+                                <th>ID</th>
+
+                                <th>Name</th>
+
+                                <th>Birth Date</th>
+
+                                <th>Phone</th>
+
+                                <th>Actions</th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody id="patientTable">
+                        </tbody>
+
+
+                    </table>
+
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =========================
+             DOCTORS
+        ========================== -->
+
+        <section id="doctorsSection"
+                 class="page-section">
+
+
+            <div class="panel">
+
+
+                <div class="panel-header">
+
+                    <div>
+
+                        <h2>
+                            Doctor Management
+                        </h2>
+
+                        <p>
+                            Add, update and delete doctors
+                        </p>
+
+                    </div>
+
+
+                    <button id="addDoctorButton"
+                            class="primary-button">
+
+                        + Add Doctor
+
+                    </button>
+
+                </div>
+
+
+                <div class="table-wrap">
+
+
+                    <table>
+
+
+                        <thead>
+
+                            <tr>
+
+                                <th>Doctor ID</th>
+
+                                <th>Department ID</th>
+
+                                <th>Name</th>
+
+                                <th>Speciality</th>
+
+                                <th>Actions</th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody id="doctorTable">
+                        </tbody>
+
+
+                    </table>
+
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =========================
+             APPOINTMENTS
+        ========================== -->
+
+        <section id="appointmentsSection"
+                 class="page-section">
+
+
+            <div class="panel">
+
+
+                <div class="panel-header">
+
+                    <div>
+
+                        <h2>
+                            Appointment Management
+                        </h2>
+
+                        <p>
+                            Book and manage appointments
+                        </p>
+
+                    </div>
+
+
+                    <button id="addAppointmentButton"
+                            class="primary-button">
+
+                        + Book Appointment
+
+                    </button>
+
+                </div>
+
+
+                <div class="table-wrap">
+
+
+                    <table>
+
+
+                        <thead>
+
+                            <tr>
+
+                                <th>ID</th>
+
+                                <th>Patient ID</th>
+
+                                <th>Doctor ID</th>
+
+                                <th>Date</th>
+
+                                <th>Status</th>
+
+                                <th>Actions</th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody id="appointmentTable">
+                        </tbody>
+
+
+                    </table>
+
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =========================
+             REPORTS
+        ========================== -->
+
+        <section id="reportsSection"
+                 class="page-section">
+
+
+            <div class="panel">
+
+
+                <div class="panel-header">
+
+                    <div>
+
+                        <h2>
+                            Hospital Reports
+                        </h2>
+
+                        <p>
+                            JOIN query reports
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="report-buttons">
+
+
+                    <button class="secondary-button report-button"
+                            data-report="appointmentDetails">
+
+                        Appointment Details
+
+                    </button>
+
+
+                    <button class="secondary-button report-button"
+                            data-report="doctorDepartment">
+
+                        Doctor Department
+
+                    </button>
+
+
+                    <button class="secondary-button report-button"
+                            data-report="prescriptionDetails">
+
+                        Prescription Details
+
+                    </button>
+
+
+                    <button class="secondary-button report-button"
+                            data-report="hospitalReport">
+
+                        Hospital Report
+
+                    </button>
+
+
+                </div>
+
+
+                <h3 id="reportTitle">
+                    Select a report
+                </h3>
+
+
+                <div id="reportResult"
+                     class="table-wrap empty-state">
+
+                    Select one of the reports above.
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =========================
+         PATIENT MODAL
+    ========================== -->
+
+    <div id="patientModal"
+         class="modal">
+
+
+        <div class="modal-card">
+
+
+            <div class="modal-header">
+
+                <h2 id="patientFormTitle">
+                    Add Patient
+                </h2>
+
+                <button class="close-button"
+                        data-close="patientModal">
+
+                    ×
+
+                </button>
+
+            </div>
+
+
+            <form id="patientForm">
+
+
+                <label>
+
+                    Patient ID
+
+                    <input type="number"
+                           id="patientId"
+                           required>
+
+                </label>
+
+
+                <label>
+
+                    Patient Name
+
+                    <input type="text"
+                           id="patientName"
+                           required>
+
+                </label>
+
+
+                <label>
+
+                    Birth Date
+
+                    <input type="date"
+                           id="patientBirthDate"
+                           required>
+
+                </label>
+
+
+                <label>
+
+                    Phone Number
+
+                    <input type="text"
+                           id="patientPhone"
+                           required>
+
+                </label>
+
+
+                <div class="form-actions">
+
+
+                    <button type="submit"
+                            class="primary-button">
+
+                        Save
+
+                    </button>
+
+
+                    <button type="button"
+                            class="secondary-button"
+                            data-close="patientModal">
+
+                        Cancel
+
+                    </button>
+
+
+                </div>
+
+
+            </form>
+
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- =========================
+         DOCTOR MODAL
+    ========================== -->
+
+    <div id="doctorModal"
+         class="modal">
+
+
+        <div class="modal-card">
+
+
+            <div class="modal-header">
+
+                <h2 id="doctorFormTitle">
+                    Add Doctor
+                </h2>
+
+
+                <button class="close-button"
+                        data-close="doctorModal">
+
+                    ×
+
+                </button>
+
+            </div>
+
+
+            <form id="doctorForm">
+
+
+                <label>
+
+                    Doctor ID
+
+                    <input type="number"
+                           id="doctorId"
+                           required>
+
+                </label>
+
+
+                <label>
+
+                    Department ID
+
+                    <input type="number"
+                           id="doctorDepartmentId"
+                           required>
+
+                </label>
+
+
+                <label>
+
+                    Doctor Name
+
+                    <input type="text"
+                           id="doctorName"
+                           required>
+
+                </label>
+
+
+                <label>
+
+                    Speciality
+
+                    <input type="text"
+                           id="doctorSpecialty"
+                           required>
+
+                </label>
+
+
+                <div class="form-actions">
+
+
+                    <button class="primary-button"
+                            type="submit">
+
+                        Save
+
+                    </button>
+
+
+                    <button class="secondary-button"
+                            type="button"
+                            data-close="doctorModal">
+
+                        Cancel
+
+                    </button>
+
+
+                </div>
+
+
+            </form>
+
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- =========================
+         APPOINTMENT MODAL
+    ========================== -->
+
+    <div id="appointmentModal"
+         class="modal">
+
+
+        <div class="modal-card">
+
+
+            <div class="modal-header">
+
+
+                <h2 id="appointmentFormTitle">
+
+                    Book Appointment
+
+                </h2>
+
+
+                <button class="close-button"
+                        data-close="appointmentModal">
+
+                    ×
+
+                </button>
+
+
+            </div>
+
+
+            <form id="appointmentForm">
+
+
+                <label>
+
+                    Appointment ID
+
+                    <input type="number"
+                           id="appointmentId"
+                           required>
+
+                </label>
+
+
+                <label>
+
+                    Patient ID
+
+                    <input type="number"
+                           id="appointmentPatientId"
+                           required>
+
+                </label>
+
+
+                <label>
+
+                    Doctor ID
+
+                    <input type="number"
+                           id="appointmentDoctorId"
+                           required>
+
+                </label>
+
+
+                <label>
+
+                    Schedule Date
+
+                    <input type="date"
+                           id="appointmentSchedule"
+                           required>
+
+                </label>
+
+
+                <label>
+
+                    Status
+
+                    <select id="appointmentStatus"
+                            required>
+
+                        <option value="booked">
+                            Booked
+                        </option>
+
+                        <option value="completed">
+                            Completed
+                        </option>
+
+                        <option value="cancelled">
+                            Cancelled
+                        </option>
+
+                    </select>
+
+                </label>
+
+
+                <div class="form-actions">
+
+
+                    <button class="primary-button"
+                            type="submit">
+
+                        Save
+
+                    </button>
+
+
+                    <button class="secondary-button"
+                            type="button"
+                            data-close="appointmentModal">
+
+                        Cancel
+
+                    </button>
+
+
+                </div>
+
+
+            </form>
+
+
+        </div>
+
+
+    </div>
+
+
+    It
+    <script src="/Script.js?v=30"></script>
+
+    <script>
+
+        async function loadAppointments() {
+
+            const table =
+                document.getElementById("appointmentTable");
+
+            try {
+
+                const response =
+                    await fetch(
+                        window.location.origin +
+                        "/api/Appointment",
+                        {
+                            method: "GET",
+                            cache: "no-store"
+                        }
+                    );
+
+                if (!response.ok) {
+
+                    throw new Error(
+                        "Status: " + response.status
+                    );
+                }
+
+                const appointments =
+                    await response.json();
+
+                const count =
+                    document.getElementById(
+                        "appointmentCount"
+                    );
+
+                if (count) {
+
+                    count.innerText =
+                        appointments.length;
+                }
+
+                table.innerHTML = "";
+
+                appointments.forEach(
+                    function (appointment) {
+
+                        const date =
+                            new Date(
+                                appointment.schedule
+                            ).toLocaleDateString("en-IN");
+
+                        table.innerHTML += `
+
+                            <tr>
+
+                                <td>
+                                    ${appointment.aid}
+                                </td>
+
+                                <td>
+                                    ${appointment.pid}
+                                </td>
+
+                                <td>
+                                    ${appointment.drId}
+                                </td>
+
+                                <td>
+                                    ${date}
+                                </td>
+
+                                <td>
+                                    ${appointment.status}
+                                </td>
+
+                                <td>
+
+                                    <button
+                                        class="edit-button"
+                                        onclick="editAppointment(
+                                            ${appointment.aid}
+                                        )">
+
+                                        Edit
+
+                                    </button>
+
+                                    <button
+                                        class="delete-button"
+                                        onclick="deleteAppointment(
+                                            ${appointment.aid}
+                                        )">
+
+                                        Delete
+
+                                    </button>
+
+                                </td>
+
+                            </tr>
+
+                        `;
+                    }
+                );
+
+                if (appointments.length === 0) {
+
+                    table.innerHTML = `
+
+                        <tr>
+
+                            <td colspan="6">
+                                No appointments found
+                            </td>
+
+                        </tr>
+
+                    `;
+                }
+            }
+            catch (error) {
+
+                console.error(error);
+
+                table.innerHTML = `
+
+                    <tr>
+
+                        <td colspan="6">
+
+                            Appointment loading failed:
+                            ${error.message}
+
+                        </td>
+
+                    </tr>
+
+                `;
+            }
+        }
+
+
+        document.addEventListener(
+            "DOMContentLoaded",
+            function () {
+
+                loadAppointments();
+
+            }
+        );
+
+    </script>
+
+</body>
+</html>
